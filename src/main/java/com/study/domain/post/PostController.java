@@ -46,6 +46,12 @@ public class PostController {
         model.addAttribute("post", post);
         return "post/view";
     }
+     @GetMapping("/post/answer.do")
+    public String openPostAnswer(@RequestParam("id") Long id, Model model) {
+        PostResponse post = postService.findPostById(id);
+        model.addAttribute("post", post);
+        return "post/answer";
+    }
 
       @PostMapping("/post/update.do")
     public String updatePost(final PostRequest params) {
@@ -59,4 +65,5 @@ public class PostController {
         postService.deletePost(id);
         return "redirect:/post/list.do";
     }
+
 }

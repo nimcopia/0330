@@ -6,8 +6,8 @@
 
 <th:block layout:fragment="content">
   <div class="page_tits">
-    <h3>문제 목록</h3>
-    <p class="path"><strong>현재 위치 :</strong> <span>2021년 1회차</span> <span>문제 목록</span> </p>
+    <h3>문제</h3>
+    <p class="path"><strong>현재 위치 :</strong> <span>정보처리기사</span> <span>문제</span> </p>
   </div>
 
   <div class="content">
@@ -17,29 +17,35 @@
           <col style="width:10%;" /><col style="width:23%;" /><col style="width:10%;" /><col style="width:23%;" />
         </colgroup>
         <tbody>
-        <tr>
-          <th scope="row">글 유형</th>
-          <td th:text="${post.noticeYn == false ? '일반' : '공지'}"></td>
 
-          <th scope="row">등록일</th>
-          <td th:text="${#temporals.format( post.createdDate, 'yyyy-MM-dd HH:mm' )}"></td>
-        </tr>
         <tr>
-          <th scope="row">제목</th>
-          <td>[[ ${post.title} ]]</td>
-
-          <th scope="row">조회</th>
-          <td colspan="3">[[ ${post.viewCnt} ]]</td>
+          <th scope="row">문제 번호</th>
+          <td >[[ ${post.title} ]]</td>
+          <th scope="row">작성자</th>
+          <td >[[ ${post.writer} ]]</td>
         </tr>
+          <th scope="row">문제</th>
+          <td colspan="3">[[ ${post.problem} ]]</td>
         <tr>
-          <th scope="row">이름</th>
-          <td colspan="3">[[ ${post.writer} ]]</td>
-        </tr>
-        <tr>
-          <th scope="row">내용</th>
+          <th scope="row"> <a th:href="@{/post/answer.do( id=${post.id} )}" class="btns btn_bdr1 btn_mid2"> 1</a></button></th>
           <td colspan="3">[[ ${post.content} ]]</td>
         </tr>
+        <tr>
+          <th scope="row"> <a th:href="@{/post/answer.do( id=${post.id} )}" class="btns btn_bdr2 btn_mid2"> 2</a></button></th>
+          <td colspan="3">[[ ${post.content2} ]]</td>
+        </tr>
+        <tr>
+          <th scope="row"> <a th:href="@{/post/answer.do( id=${post.id} )}" class="btns btn_bdr3 btn_mid2"> 3</a></button></th>
+          <td colspan="3">[[ ${post.content3} ]]</td>
+        </tr>
+        <tr>
+          <th scope="row"> <a th:href="@{/post/answer.do( id=${post.id} )}" class="btns btn_bdr4 btn_mid2"> 4</a></button></th>
+          <td colspan="3">[[ ${post.content4} ]]</td>
+        </tr>
+
+
         </tbody>
+
       </table>
       <p class="btn_set">
         <a th:href="@{/post/write.do( id=${post.id} )}" class="btns btn_bdr4 btn_mid">수정</a>

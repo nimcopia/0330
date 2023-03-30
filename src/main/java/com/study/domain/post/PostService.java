@@ -32,6 +32,8 @@ public class PostService {
         return postMapper.findById(id);
     }
 
+
+
     /**
      * 게시글 수정
      * @param params - 게시글 정보

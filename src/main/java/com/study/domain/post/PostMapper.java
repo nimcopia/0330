@@ -20,6 +20,7 @@ public interface PostMapper {
      */
     PostResponse findById(Long id);
 
+
     /**
      * 게시글 수정
      * @param params - 게시글 정보
@@ -43,5 +44,6 @@ public interface PostMapper {
      * @return 게시글 수
      */
     int count();
+
 
 }
